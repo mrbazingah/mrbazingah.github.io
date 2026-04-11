@@ -1,27 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Title</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabian — Game Dev Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #111113;
+      --surface: #1a1a1e;
+      --border: #2a2a30;
+      --text: #e2e0da;
+      --muted: #777;
+      --accent: #c8f542;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+    }
+    header { margin-bottom: 4rem; }
+    header h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+    nav a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    nav a:hover { color: var(--text); }
+    section { margin-bottom: 3.5rem; }
+    h2 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+    }
+    .game-list, .system-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border: 1px solid var(--border);
+    }
+    .game {
+      background: var(--surface);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+    }
+    .game:hover { background: #202026; }
+    .game-info h3 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+    .game-info p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .game-meta {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .game-tag {
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+    .game-link {
+      display: block;
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .system {
+      background: var(--surface);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: background 0.15s;
+      border: 1px solid var(--border);
+    }
+    .system:hover { background: #202026; }
+    .system-info h3 {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    .system-info p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .system-arrow {
+      color: var(--muted);
+      font-size: 14px;
+      flex-shrink: 0;
+      transition: transform 0.15s, color 0.15s;
+    }
+    .system:hover .system-arrow {
+      transform: translate(2px, -2px);
+      color: var(--accent);
+    }
+    .about-text {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+    .about-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--text); }
+    a.system {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Welcome to My Site</h1>
-        </header>
-        <!-- More content here -->
-        <p class="about-text">Here’s some information about me.</p>
-        <div>
-            <strong>About</strong>: This is a brief introduction.
+  <header>
+    <h1>Fabian Hansson Vallgren</h1>
+    <p>Game developer & software engineer. This is a little showcase of what I've worked on and the systems I've used.</p>
+    <nav>
+      <a href="#games">Games</a>
+      <a href="#systems">Systems</a>
+      <a href="#about">About</a>
+      <a href="https://mrbazinga.itch.io/" target="_blank">itch.io ↗</a>
+    </nav>
+  </header>
+  <section id="games">
+    <h2>Games</h2>
+    <div class="game-list">
+      <div class="game">
+        <div class="game-info">
+          <h3>Skit Gubbe</h3>
+          <p>A digital version of the Swedish card game.</p>
         </div>
-        <div>
-            <p>Some more content here. It’s important.</p>
+        <div class="game-meta">
+          <a class="game-link" href="https://mrbazinga.itch.io/skit-gubbe" target="_blank">Play →</a>
         </div>
+      </div>
+      <div class="game">
+        <div class="game-info">
+          <h3>Tiny Train Tales</h3>
+          <p>Small train game about unlocking and traveling through Europe. (Not yet released)</p>
+        </div>
+        <div class="game-meta">
+          <a class="game-link" href="https://github.com/mrbazingah/TinyTrainTalesRepo" target="_blank">Project Files →</a>
+        </div>
+      </div>
     </div>
-    <footer>
-        <p>&copy; 2026 Your Company Name</p>
-    </footer>
+  </section>
+  <section id="systems">
+    <h2>Systems</h2>
+    <div class="system-list">
+      <a class="system" href="https://github.com/mrbazingah/CardGameRepo/tree/main/Card%20Game/Assets/Scripts/Skit%20Gubbe/Machine%20Learning" target="_blank">
+        <div class="system-info">
+          <h3>Machine Learning AI (Skit Gubbe)</h3>
+          <p>In Skit Gubbe I've experimented with using Machine Learning to develop an AI opponent. 
+            I first made a simple opponent that only played the lowest card possible but later I started looking in to Q-Learning AI, 
+            which is a type of reinforcement learning where the AI learns by trial and error while playing itself. 
+            it plays the game over and over and gradually figures out which actions tend to lead to winning. 
+            It does that by saving states to a Q-Table which it then references while playing. 
+            If it has not seen that exact position/state before it will save it to the Q-Table and if it's actions was good or bad which it decides through a reward system</p>
+        </div>
+        <span class="system-arrow">↗</span>
+      </a>
+      <a class="system" href="https://github.com/mrbazingah/CardGameRepo/tree/main/Card%20Game/Assets/Scripts/Skit%20Gubbe/Machine%20Learning" target="_blank">
+        <div class="system-info">
+          <h3>Machine Learning Simulation (Skit Gubbe)</h3>
+          <p>To teach the Q-Learning AI I used an empty scene in Unity to run millions of simulations where it learned the states it then saved to the Q-Table. 
+            The training first starts with the AI playing randomly so it learns a lot of states early on. 
+            Later as the Epsilon value drops the less and less it playes randomly and instead refers to the states in the Q-Table, making it's winrate go up and up through out the simulation.</p>
+        </div>
+        <span class="system-arrow">↗</span>
+      </a>
+      <a class="system" href="https://github.com/mrbazingah/TinyTrainTalesRepo/tree/main/Tiny%20Train%20Tales/Assets/Scripts/Save%20System" target="_blank">
+        <div class="system-info">
+          <h3>JSON Save System (Tiny Train Tales)</h3>
+          <p>Before making this system I relied on Unity's PlayerPrefs function to store data, 
+            but PlayerPrefs is designed for simple key-value pairs like settings and not structured game data with nested objects. 
+            After adding Cargo and an Inventory System where each cargo object and city had many values to store, I felt it was necessary to add a custom Save System to make it both easier and more[...] 
+            The system works by saving data into SaveData classes that are then stored inside SaveFile classes as lists. 
+            It creates a separate JSON file for each category of data like cities, inventory, upgrades and passengers, keeping things organized so only the relevant file needs to be rewritten when [...] 
+            These files are placed locally on the player's computer. Cities are also stored in a dictionary keyed by city name so any system can look up a city instantly rather than scanning throug[...] 
+            SaveToDisk() is called manually at key moments like scene transitions and game exit. When the player starts the game it reads the saved files and loads all the data back in.</p>
+        </div>
+        <span class="system-arrow">↗</span>
+      </a>
+    </div>
+  </section>
+  <section id="about">
+    <h2>About</h2>
+    <p class="about-text">
+      I'm an aspiring Game Developer working in <strong>Unity / C#</strong> 
+      and am currently an intern at Textual.ai where I work as a software developer working in <strong>Python</strong>, <strong>TypeScript</strong> and <strong>Html</strong>.
+    </p>
+  </section>
+  <div></div>
 </body>
 </html>
