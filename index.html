@@ -200,7 +200,7 @@
     <div class="system-list">
       <a class="system" href="https://github.com/mrbazingah/CardGameRepo/tree/main/Card%20Game/Assets/Scripts/Skit%20Gubbe/Machine%20Learning" target="_blank">
         <div class="system-info">
-          <h3>Machine Learning AI</h3>
+          <h3>Machine Learning AI (Skit Gubbe)</h3>
           <p>In Skit Gubbe I've experimented with using Machine Learning to develop an AI opponent. 
             I first made a simple opponent that only played the lowest card possible but later I started looking in to Q-Learning AI, 
             which is a type of reinforcement learning where the AI learns by trial and error while playing itself. 
@@ -210,17 +210,20 @@
         </div>
         <span class="system-arrow">↗</span>
       </div>
-      <div class="system">
+       <a class="system" href="https://github.com/mrbazingah/CardGameRepo/tree/main/Card%20Game/Assets/Scripts/Skit%20Gubbe/Machine%20Learning" target="_blank">
         <div class="system-info">
-          <h3>Card game state architecture</h3>
-          <p>Skit Gubbe — modeling turns, hands, and rules in C#</p>
+          <h3>Machine Learning Simulation (Skit Gubbe)</h3>
+          <p>To teach the Q-Learning AI I used an empty scene in Unity to run millions of simulations where it learned the states it then saved to the Q-Table. 
+            The training first starts with the AI playing randomly so it learns a lot of states early on. 
+            Later as the Epsilon value drops the less and less it playes randomly and instead refers to the states in the Q-Table, making it's winrate go up and up through out the simulation.</p>
         </div>
         <span class="system-arrow">↗</span>
       </div>
       <div class="system">
         <div class="system-info">
-          <h3>UI scaling for WebGL builds</h3>
-          <p>General — Canvas Scaler, itch.io embed sizing, and common pitfalls</p>
+          <h3>Json Save System (Tiny Train Tales)</h3>
+          <p>Before making this system I relied on Unity's PlayerPrefs function where I store every bit of data, 
+            but after adding Cargo and an Inventroy System where each cargo object and city had many values to store I felt it was necessary to add custom Save System to make it both easier and more reliable</p>
         </div>
         <span class="system-arrow">↗</span>
       </div>
