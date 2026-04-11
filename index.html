@@ -1,11 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Fabian Hansson Vallgren - Game Dev Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabian — Game Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #111113;
+      --surface: #1a1a1e;
+      --border: #2a2a30;
+      --text: #e2e0da;
+      --muted: #777;
+      --accent: #c8f542;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+    }
+
+    header { margin-bottom: 4rem; }
+
+    header h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    nav a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    section { margin-bottom: 3.5rem; }
+
+    h2 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+    }
+
+    .game-list, .system-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border: 1px solid var(--border);
+    }
+
+    .game {
+      background: var(--surface);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+    }
+
+    .game:hover { background: #202026; }
+
+    .game-info h3 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .game-info p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .game-meta {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .game-tag {
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    .game-link {
+      display: block;
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .system {
+      background: var(--surface);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .system:hover { background: #202026; }
+
+    .system-info h3 {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .system-info p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .system-arrow {
+      color: var(--muted);
+      font-size: 14px;
+      flex-shrink: 0;
+      transition: transform 0.15s, color 0.15s;
+    }
+
+    .system:hover .system-arrow {
+      transform: translate(2px, -2px);
+      color: var(--accent);
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .about-text strong { color: var(--text); font-weight: 500; }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--text); }
+  </style>
 </head>
 <body>
-    <h1>Hi, I'm Fabian</h1>
-    <p>I make games.</p>
+
+  <header>
+    <h1>Fabian</h1>
+    <p>Game developer & software engineer, based in Stockholm. I build games with Unity and write about the systems behind them.</p>
+    <nav>
+      <a href="#games">Games</a>
+      <a href="#systems">Systems</a>
+      <a href="#about">About</a>
+      <a href="https://itch.io" target="_blank">itch.io ↗</a>
+    </nav>
+  </header>
+
+  <section id="games">
+    <h2>Games</h2>
+    <div class="game-list">
+
+      <div class="game">
+        <div class="game-info">
+          <h3>Skull Gubbe</h3>
+          <p>A digital version of the classic Swedish card game, with an MCTS AI opponent. Playable in the browser.</p>
+        </div>
+        <div class="game-meta">
+          <span class="game-tag">Card game</span>
+          <a class="game-link" href="#" target="_blank">Play →</a>
+        </div>
+      </div>
+
+      <div class="game">
+        <div class="game-info">
+          <h3>Your next game</h3>
+          <p>Add a short description here. Each entry can link to its itch.io page.</p>
+        </div>
+        <div class="game-meta">
+          <span class="game-tag">Coming soon</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="systems">
+    <h2>System deep dives</h2>
+    <div class="system-list">
+
+      <div class="system">
+        <div class="system-info">
+          <h3>Monte Carlo Tree Search AI</h3>
+          <p>Skull Gubbe — how MCTS works and why threading breaks in WebGL</p>
+        </div>
+        <span class="system-arrow">↗</span>
+      </div>
+
+      <div class="system">
+        <div class="system-info">
+          <h3>Card game state architecture</h3>
+          <p>Skull Gubbe — modeling turns, hands, and rules in C#</p>
+        </div>
+        <span class="system-arrow">↗</span>
+      </div>
+
+      <div class="system">
+        <div class="system-info">
+          <h3>UI scaling for WebGL builds</h3>
+          <p>General — Canvas Scaler, itch.io embed sizing, and common pitfalls</p>
+        </div>
+        <span class="system-arrow">↗</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="about-text">
+      I'm a software engineer by day and game developer in my own time. I work primarily in <strong>Unity / C#</strong>, with a background in <strong>Python and backend development</strong>. I'm interested in game AI, clean system design, and making things that actually feel good to play.
+    </p>
+  </section>
+
+  <footer>
+    <span>© 2026 Fabian</span>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="https://github.com" target="_blank">GitHub</a>
+      <a href="https://itch.io" target="_blank">itch.io</a>
+    </div>
+  </footer>
+
 </body>
 </html>
