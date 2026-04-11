@@ -226,10 +226,10 @@
           <h3>JSON Save System (Tiny Train Tales)</h3>
           <p>Before making this system I relied on Unity's PlayerPrefs function to store data, 
             but PlayerPrefs is designed for simple key-value pairs like settings and not structured game data with nested objects. 
-            After adding Cargo and an Inventory System where each cargo object and city had many values to store, I felt it was necessary to add a custom Save System to make it both easier and more[...] 
+            After adding Cargo and an Inventory System where each cargo object and city had many values to store, I felt it was necessary to add a custom Save System to make it both easier and more reliable
             The system works by saving data into SaveData classes that are then stored inside SaveFile classes as lists. 
-            It creates a separate JSON file for each category of data like cities, inventory, upgrades and passengers, keeping things organized so only the relevant file needs to be rewritten when [...] 
-            These files are placed locally on the player's computer. Cities are also stored in a dictionary keyed by city name so any system can look up a city instantly rather than scanning throug[...] 
+            It creates a separate JSON file for each category of data like cities, inventory, upgrades and passengers, keeping things organized so only the relevant file needs to be rewritten when something changes. 
+            These files are placed locally on the player's computer. Cities are also stored in a dictionary keyed by city name so any system can look up a city instantly rather than scanning through the whole list.
             SaveToDisk() is called manually at key moments like scene transitions and game exit. When the player starts the game it reads the saved files and loads all the data back in.</p>
         </div>
         <span class="system-arrow">↗</span>
