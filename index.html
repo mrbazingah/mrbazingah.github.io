@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --bg: #111113;
       --surface: #1a1a1e;
@@ -17,7 +16,6 @@
       --muted: #777;
       --accent: #c8f542;
     }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -28,37 +26,29 @@
       margin: 0 auto;
       padding: 4rem 1.5rem 6rem;
     }
-
     header { margin-bottom: 4rem; }
-
     header h1 {
       font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
-
     header p {
       color: var(--muted);
       font-size: 14px;
     }
-
     nav {
       display: flex;
       gap: 1.5rem;
       margin-top: 1.25rem;
     }
-
     nav a {
       font-size: 13px;
       color: var(--muted);
       text-decoration: none;
       transition: color 0.15s;
     }
-
     nav a:hover { color: var(--text); }
-
     section { margin-bottom: 3.5rem; }
-
     h2 {
       font-size: 13px;
       font-weight: 500;
@@ -67,14 +57,12 @@
       letter-spacing: 0.08em;
       margin-bottom: 1.25rem;
     }
-
     .game-list, .system-list {
       display: flex;
       flex-direction: column;
       gap: 1px;
       border: 1px solid var(--border);
     }
-
     .game {
       background: var(--surface);
       padding: 1.25rem 1.5rem;
@@ -86,26 +74,21 @@
       color: inherit;
       transition: background 0.15s;
     }
-
     .game:hover { background: #202026; }
-
     .game-info h3 {
       font-size: 15px;
       font-weight: 500;
       margin-bottom: 0.3rem;
     }
-
     .game-info p {
       font-size: 13px;
       color: var(--muted);
       line-height: 1.55;
     }
-
     .game-meta {
       text-align: right;
       flex-shrink: 0;
     }
-
     .game-tag {
       font-size: 11px;
       color: var(--muted);
@@ -114,14 +97,12 @@
       display: inline-block;
       margin-bottom: 0.4rem;
     }
-
     .game-link {
       display: block;
       font-size: 12px;
       color: var(--accent);
       text-decoration: none;
     }
-
     .system {
       background: var(--surface);
       padding: 1.25rem 1.5rem;
@@ -132,40 +113,35 @@
       cursor: pointer;
       transition: background 0.15s;
     }
-
     .system:hover { background: #202026; }
-
     .system-info h3 {
       font-size: 14px;
       font-weight: 500;
       margin-bottom: 0.25rem;
     }
-
     .system-info p {
       font-size: 13px;
       color: var(--muted);
     }
-
     .system-arrow {
       color: var(--muted);
       font-size: 14px;
       flex-shrink: 0;
       transition: transform 0.15s, color 0.15s;
     }
-
     .system:hover .system-arrow {
       transform: translate(2px, -2px);
       color: var(--accent);
     }
-
     .about-text {
       color: var(--muted);
       font-size: 14px;
       line-height: 1.75;
     }
-
-    .about-text strong { color: var(--text); font-weight: 500; }
-
+    .about-text strong 
+    { color: var(--text);
+      font-weight: 500; 
+    }
     footer {
       margin-top: 4rem;
       padding-top: 2rem;
@@ -175,17 +151,14 @@
       display: flex;
       justify-content: space-between;
     }
-
     footer a {
       color: var(--muted);
       text-decoration: none;
     }
-
     footer a:hover { color: var(--text); }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Fabian</h1>
     <p>Game developer & software engineer. This is a little showcase of what I´ve worked on and the systems I've used.</p>
@@ -196,11 +169,9 @@
       <a href="https://mrbazinga.itch.io/" target="_blank">itch.io ↗</a>
     </nav>
   </header>
-
   <section id="games">
     <h2>Games</h2>
     <div class="game-list">
-
       <div class="game">
         <div class="game-info">
           <h3>Skull Gubbe</h3>
@@ -211,7 +182,6 @@
           <a class="game-link" href="https://mrbazinga.itch.io/skit-gubbe" target="_blank">Play →</a>
         </div>
       </div>
-
       <div class="game">
         <div class="game-info">
           <h3>Your next game</h3>
@@ -224,11 +194,9 @@
 
     </div>
   </section>
-
   <section id="systems">
     <h2>Systems</h2>
     <div class="system-list">
-
       <a class="system" href="https://github.com/mrbazingah/CardGameRepo/tree/main/Card%20Game/Assets/Scripts/Skit%20Gubbe/Machine%20Learning" target="_blank">
         <div class="system-info">
           <h3>Machine Learning AI</h3>
@@ -241,7 +209,6 @@
         </div>
         <span class="system-arrow">↗</span>
       </div>
-
       <div class="system">
         <div class="system-info">
           <h3>Card game state architecture</h3>
@@ -249,7 +216,6 @@
         </div>
         <span class="system-arrow">↗</span>
       </div>
-
       <div class="system">
         <div class="system-info">
           <h3>UI scaling for WebGL builds</h3>
@@ -257,17 +223,14 @@
         </div>
         <span class="system-arrow">↗</span>
       </div>
-
     </div>
   </section>
-
   <section id="about">
     <h2>About</h2>
     <p class="about-text">
       I'm a software engineer by day and game developer in my own time. I work primarily in <strong>Unity / C#</strong>, with a background in <strong>Python and backend development</strong>. I'm interested in game AI, clean system design, and making things that actually feel good to play.
     </p>
   </section>
-
   <footer>
     <span>© 2026 Fabian</span>
     <div style="display:flex;gap:1.5rem;">
@@ -275,6 +238,5 @@
       <a href="https://itch.io" target="_blank">itch.io</a>
     </div>
   </footer>
-
 </body>
 </html>
