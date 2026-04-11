@@ -188,7 +188,7 @@
 
   <header>
     <h1>Fabian</h1>
-    <p>Game developer & software engineer, based in Stockholm. I build games with Unity and write about the systems behind them.</p>
+    <p>Game developer & software engineer. This is a little showcase of what I´ve worked on and the systems I've used.</p>
     <nav>
       <a href="#games">Games</a>
       <a href="#systems">Systems</a>
@@ -204,7 +204,7 @@
       <div class="game">
         <div class="game-info">
           <h3>Skull Gubbe</h3>
-          <p>A digital version of the classic Swedish card game, with an MCTS AI opponent. Playable in the browser.</p>
+          <p>A digital version of the Swedish card game.</p>
         </div>
         <div class="game-meta">
           <span class="game-tag">Card game</span>
@@ -226,13 +226,18 @@
   </section>
 
   <section id="systems">
-    <h2>System deep dives</h2>
+    <h2>Systems</h2>
     <div class="system-list">
 
       <div class="system">
         <div class="system-info">
-          <h3>Monte Carlo Tree Search AI</h3>
-          <p>Skull Gubbe — how MCTS works and why threading breaks in WebGL</p>
+          <h3>Machine Learning AI</h3>
+          <p>In Skit Gubbe I've experimented with using Machine Learning to develop an AI opponent. 
+            I first made a simple opponent that only played the lowest card possible but later I started looking in to Q-Learning AI, 
+            which is a type of reinforcement learning where the AI learns by trial and error while playing itself. 
+            it plays the game over and over and gradually figures out which actions tend to lead to winning. 
+            It does that by saving states to a Q-Table which it then references while playing. 
+            If it has not seen that exact position/state before it will save it to the Q-Table and if it's actions was good or bad which it decides through a reward system</p>
         </div>
         <span class="system-arrow">↗</span>
       </div>
