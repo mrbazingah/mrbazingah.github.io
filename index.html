@@ -218,28 +218,23 @@
   <section id="systems">
     <div class="system-list">
       <a class="system" href="https://github.com/mrbazingah/CardGameRepo/tree/main/Card%20Game/Assets/Scripts/Skit%20Gubbe/Machine%20Learning" target="_blank">
-        <div class="system-info">
-          <h3>Skit Gubbe</h3>
-          <h3>Machine Learning AI</h3>
-          <p>In Skit Gubbe I've experimented with using Machine Learning to develop an AI opponent. 
-            I first made a simple opponent that only played the lowest card possible but later I started looking in to Q-Learning AI, 
-            which is a type of reinforcement learning where the AI learns by trial and error while playing itself. 
-            it plays the game over and over and gradually figures out which actions tend to lead to winning. 
-            It does that by saving states to a Q-Table which it then references while playing. 
-            If it has not seen that exact position/state before it will save it to the Q-Table 
-            and if it's actions was good or bad which it decides through a reward system</p>
+       <div class="system-info">
+        <h3>Skit Gubbe</h3>
+        <h3>Machine Learning AI</h3>
+        <p>In Skit Gubbe I've experimented with using Machine Learning to develop an AI opponent. 
+        I first made a simple opponent that only played the lowest card possible but later I started looking in to Q-Learning AI, 
+        which is a type of reinforcement learning where the AI learns by trial and error while playing itself. 
+        it plays the game over and over and gradually figures out which actions tend to lead to winning. 
+        It does that by saving states to a Q-Table which it then references while playing. 
+        If it has not seen that exact position/state before it will save it to the Q-Table 
+        and if it's actions was good or bad which it decides through a reward system</p>
+        <p style="margin-top: 0.75rem;">
+        To teach the Q-Learning AI I used an empty scene in Unity to run millions of simulations where it plays itself and learns the states it then saved to the Q-Table. 
+        The training first starts with the AI playing randomly so it learns a lot of states early on. 
+        Later as the Epsilon value drops the less and less it playes randomly and instead refers to the states in the Q-Table, 
+        making it's winrate go up and up through out the simulation.</p>
         </div>
-        <span class="system-arrow">↗</span>
-      </a>
-      <a class="system" href="https://github.com/mrbazingah/CardGameRepo/tree/main/Card%20Game/Assets/Scripts/Skit%20Gubbe/Machine%20Learning" target="_blank">
-        <div class="system-info">
-          <h3>Machine Learning Simulation (Skit Gubbe)</h3>
-          <p>To teach the Q-Learning AI I used an empty scene in Unity to run millions of simulations where it plays itself and learns the states it then saved to the Q-Table. 
-            The training first starts with the AI playing randomly so it learns a lot of states early on. 
-            Later as the Epsilon value drops the less and less it playes randomly and instead refers to the states in the Q-Table, 
-            making it's winrate go up and up through out the simulation.</p>
-        </div>
-        <span class="system-arrow">↗</span>
+      <span class="system-arrow">↗</span>
       </a>
       <a class="system" href="https://github.com/mrbazingah/TinyTrainTalesRepo/tree/main/Tiny%20Train%20Tales/Assets/Scripts/Save%20System" target="_blank">
         <div class="system-info">
