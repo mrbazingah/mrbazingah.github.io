@@ -133,7 +133,7 @@
       flex-shrink: 0;
       transition: transform 0.15s, color 0.15s;
     }
-    .system:hover .system-arrow {
+    .system-arrow:hover {
       transform: translate(2px, -2px);
       color: var(--accent);
     }
@@ -258,7 +258,7 @@
             SaveToDisk() is called manually at key moments like scene transitions 
             and game exit. When the player starts the game it reads the saved files and loads all the data back in.</p>
           <div style="display:flex; justify-content:flex-end; margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--border);">
-            <a href="https://github.com/mrbazingah/CardGameRepo/tree/main/Card%20Game/Assets/Scripts/Skit%20Gubbe/Machine%20Learning" target="_blank" class="system-arrow">↗</a>
+            <a href="https://github.com/mrbazingah/TinyTrainTalesRepo/tree/main/Tiny%20Train%20Tales/Assets/Scripts/Save%20System" target="_blank" class="system-arrow">↗</a>
           </div>
           <h3 style="margin-top:0.75rem;">Input here</h3>
           <p style="margin-top:0.5rem;">input here</p>
@@ -267,24 +267,6 @@
           </div>
         </div>
       </div>
-
-      <a class="system" href="https://github.com/mrbazingah/TinyTrainTalesRepo/tree/main/Tiny%20Train%20Tales/Assets/Scripts/Save%20System" target="_blank">
-        <div class="system-info">
-          <h3>JSON Save System (Tiny Train Tales)</h3>
-          <p>Before making this system I relied on Unity's PlayerPrefs function to store data, 
-            but PlayerPrefs is designed for simple key-value pairs like settings and not structured game data with nested objects. 
-            After adding Cargo and an Inventory System where each cargo object and city had many values to store, 
-            I felt it was necessary to add a custom Save System to make it both easier and more reliable.
-            The system works by saving data into SaveData classes that are then stored inside SaveFile classes as lists. 
-            It creates a separate JSON file for each category of data like cities, inventory, upgrades and passengers, 
-            keeping things organized so only the relevant file needs to be rewritten when something changes. 
-            These files are placed locally on the player's computer. 
-            Cities are also stored in a dictionary keyed by city name so any system can look up a city instantly rather than scanning through the whole list.
-            SaveToDisk() is called manually at key moments like scene transitions 
-            and game exit. When the player starts the game it reads the saved files and loads all the data back in.</p>
-        </div>
-        <span class="system-arrow">↗</span>
-      </a>
     </div>
   </section>
   <section id="about">
