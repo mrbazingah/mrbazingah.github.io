@@ -261,10 +261,19 @@
           <div style="display:flex; justify-content:flex-end; margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--border);">
             <a href="https://github.com/mrbazingah/TinyTrainTalesRepo/tree/main/Tiny%20Train%20Tales/Assets/Scripts/Save%20System" target="_blank" class="system-arrow">↗</a>
           </div>
-          <h3 style="margin-top:0.75rem;">Input here</h3>
-          <p style="margin-top:0.5rem;">input here</p>
+          <h3>Path Finding</h3>
+          <p>This is the cornerstone of the entire game and the feature I've spent the most time on. 
+            The pathfinding uses the A* algorithm, where both the start city and destination are known in advance. 
+            It works by exploring cities one at a time, always prioritizing the one with the lowest combined cost. 
+            Each city tracks two values, the gCost, which is the actual distance traveled from the start to reach that city, and the hCost, 
+            which is an estimated distance remaining to the goal. 
+            These two are added together into an fCost, and the city with the lowest fCost is always explored next. 
+            This means paths that are expensive and still from the goal doesn't get prioritized, 
+            while cheaper and more promising routes get explored first. Each city also keeps track of which city it came from, 
+            so once the destination is reached the full path can be retraced backwards from end to start. 
+            The result is the shortest valid route between any two cities on the map.".</p>
           <div style="display:flex; justify-content:flex-end; margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--border);">
-            <a href="https://github.com/mrbazingah/CardGameRepo/tree/main/Card%20Game/Assets/Scripts/Skit%20Gubbe/Machine%20Learning" target="_blank" class="system-arrow">↗</a>
+            <a href="https://github.com/mrbazingah/TinyTrainTalesRepo/tree/main/Tiny%20Train%20Tales/Assets/Scripts/Map/PathFinding" target="_blank" class="system-arrow">↗</a>
           </div>
         </div>
       </div>
