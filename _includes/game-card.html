@@ -1,0 +1,12 @@
+{% assign g = include.game %}
+<a class="card" href="{{ g.url | relative_url }}">
+  {% include media.html item=g context="card" %}
+  <div class="card-body">
+    <span class="card-num">{% if include.number < 10 %}0{% endif %}{{ include.number }}</span>
+    <div>
+      <h3 class="card-title">{{ g.title }}</h3>
+      {% if g.tagline %}<p class="card-tagline">{{ g.tagline }}</p>{% endif %}
+      {% if g.tags %}<p class="card-tags">{{ g.tags | join: " / " }}</p>{% endif %}
+    </div>
+  </div>
+</a>

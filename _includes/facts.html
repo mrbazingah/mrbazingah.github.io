@@ -1,0 +1,13 @@
+{% comment %}
+  The row of quick facts under a game's hero. Only fields that are filled in are shown.
+{% endcomment %}
+{% assign f = include.item %}
+{% if f.engine or f.team or f.timeline or f.status or f.tags %}
+<dl class="facts wrap">
+  {% if f.engine %}<div><dt>Engine</dt><dd>{{ f.engine }}</dd></div>{% endif %}
+  {% if f.team %}<div><dt>Team</dt><dd>{{ f.team }}</dd></div>{% endif %}
+  {% if f.timeline %}<div><dt>Timeline</dt><dd>{{ f.timeline }}</dd></div>{% endif %}
+  {% if f.status %}<div><dt>Status</dt><dd>{{ f.status }}</dd></div>{% endif %}
+  {% if f.tags %}<div><dt>Focus</dt><dd>{{ f.tags | join: " / " }}</dd></div>{% endif %}
+</dl>
+{% endif %}

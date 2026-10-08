@@ -1,0 +1,37 @@
+# Site settings. Change these and every page updates.
+title: Fabian Hansson Vallgren
+description: Game developer working in Unity and C#. Games, playable builds and write-ups of the systems behind them.
+url: https://mrbazingah.github.io
+lang: en
+
+# Links used in the header, footer and About page.
+links:
+  github: https://github.com/mrbazingah
+  itch: https://mrbazinga.itch.io
+  # email: you@example.com
+  # linkedin: https://www.linkedin.com/in/your-name
+
+# Default image when a page is shared (LinkedIn, Discord...). Use a 1200x630 or 1280x720 image.
+# share_image: /assets/share.jpg
+
+# Every file in _games/ becomes a page at /games/<file-name>/
+# Every file in _experiments/ becomes a page at /experiments/<file-name>/
+collections:
+  games:
+    output: true
+    permalink: /games/:name/
+  experiments:
+    output: true
+    permalink: /experiments/:name/
+
+defaults:
+  - scope: { path: "", type: games }
+    values: { layout: project }
+  - scope: { path: "", type: experiments }
+    values: { layout: project }
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

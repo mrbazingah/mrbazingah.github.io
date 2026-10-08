@@ -1,0 +1,63 @@
+---
+layout: default
+title: About
+permalink: /about/
+description: About Fabian Hansson Vallgren, a game developer working in Unity and C#.
+---
+
+<section class="about wrap">
+  <h1 class="display about-title">About</h1>
+
+  <div class="about-body">
+    <!-- Optional photo: put a square image in /assets/ and uncomment.
+    <img class="about-photo" src="/assets/portrait.jpg" alt="Fabian Hansson Vallgren" width="480" height="480" />
+    -->
+    <div class="prose prose--large">
+      <p>I'm Fabian Hansson Vallgren, an aspiring game developer working in Unity and C#.</p>
+      <p>What pulls me in most is the systems under a game: an AI opponent that learns a card game by playing millions of rounds against itself, a pathfinding algorithm that finds the shortest route across Europe, or a save system that keeps a whole world in order. My biggest project, Skit Gubbe, started as my final school project, and I'm still working on it.</p>
+      <p>Outside of games, I've worked professionally with Python, TypeScript and HTML.</p>
+    </div>
+
+    <dl class="about-list">
+      <div>
+        <dt>Game development</dt>
+        <dd>Unity, C#</dd>
+      </div>
+      <div>
+        <dt>Game AI</dt>
+        <dd>Q-learning, MCTS, Unity ML-Agents</dd>
+      </div>
+      <div>
+        <dt>Systems</dt>
+        <dd>A* pathfinding, JSON save systems, inventory systems</dd>
+      </div>
+      <div>
+        <dt>Professional</dt>
+        <dd>Python, TypeScript, HTML</dd>
+      </div>
+      <div>
+        <dt>Currently</dt>
+        <dd>Polishing Skit Gubbe and learning ML-Agents</dd>
+      </div>
+      <!-- Add more rows the same way, e.g.
+      <div>
+        <dt>Education</dt>
+        <dd>School name, programme, year</dd>
+      </div>
+      -->
+    </dl>
+
+    <div class="about-contact">
+      <p class="label">Find me</p>
+      <div class="actions">
+        <a class="btn" href="{{ site.links.github }}" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="{{ site.links.itch }}" target="_blank" rel="noopener">itch.io <span aria-hidden="true">↗</span></a>
+        {% if site.links.linkedin %}<a class="btn" href="{{ site.links.linkedin }}" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>{% endif %}
+        {% if site.links.email %}<a class="btn btn--primary" href="mailto:{{ site.links.email }}">Email me</a>{% endif %}
+        <!-- To link a CV: put the PDF in /assets/ and uncomment.
+        <a class="btn" href="/assets/cv.pdf">CV (PDF)</a>
+        -->
+      </div>
+    </div>
+  </div>
+</section>

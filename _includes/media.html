@@ -1,0 +1,21 @@
+{% comment %}
+  Shows a game's clip, cover image, or (when neither exists yet) a typographic placeholder.
+  Usage: {% include media.html item=game context="card" %}   context: card | hero | featured
+{% endcomment %}
+{% assign m = include.item %}
+<div class="media-frame"{% if m.tint %} style="--tint: {{ m.tint }}"{% endif %}>
+  {% if m.clip %}
+    <video class="media" src="{{ m.clip | relative_url }}"{% if m.cover %} poster="{{ m.cover | relative_url }}"{% endif %}
+      muted loop playsinline
+      {% if include.context == "card" %}preload="none" data-hover-play{% else %}autoplay preload="metadata" data-autoplay{% endif %}
+      aria-label="Gameplay from {{ m.title }}"></video>
+  {% elsif m.cover %}
+    <img class="media" src="{{ m.cover | relative_url }}" alt="{{ m.cover_alt | default: m.title | escape }}"
+      width="1280" height="720"{% if include.context == "card" %} loading="lazy"{% endif %} />
+  {% else %}
+    <div class="media media--empty" role="img" aria-label="No footage of {{ m.title }} yet">
+      <span class="media-empty-note">Footage coming</span>
+      <span class="media-empty-title" aria-hidden="true">{{ m.title }}</span>
+    </div>
+  {% endif %}
+</div>
