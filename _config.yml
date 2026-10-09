@@ -14,21 +14,11 @@ links:
 # Default image when a page is shared (LinkedIn, Discord...). Use a 1200x630 or 1280x720 image.
 # share_image: /assets/share.jpg
 
-# Every file in _games/ becomes a page at /games/<file-name>/
-# Every file in _experiments/ becomes a page at /experiments/<file-name>/
+# Every file in _projects/ is one project. Its `category:` (school or personal)
+# decides which page it shows up on.
 collections:
-  games:
-    output: true
-    permalink: /games/:name/
-  experiments:
-    output: true
-    permalink: /experiments/:name/
-
-defaults:
-  - scope: { path: "", type: games }
-    values: { layout: project }
-  - scope: { path: "", type: experiments }
-    values: { layout: project }
+  projects:
+    output: false
 
 exclude:
   - README.md

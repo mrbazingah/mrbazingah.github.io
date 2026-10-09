@@ -1,19 +1,21 @@
 {% comment %}
-  Shows a game's clip, cover image, or (when neither exists yet) a typographic placeholder.
-  Usage: {% include media.html item=game context="card" %}   context: card | hero | featured
+  A project's looping preview: a GIF/image, or a WebM/MP4 clip. Until there is one,
+  shows a typographic placeholder in the project's tint colour.
+  Usage: {% include media.html item=project %}
+  Add decorative=true when it sits inside a link that already names the project.
 {% endcomment %}
 {% assign m = include.item %}
+{% assign is_video = false %}
+{% if m.preview contains ".webm" or m.preview contains ".mp4" %}{% assign is_video = true %}{% endif %}
 <div class="media-frame"{% if m.tint %} style="--tint: {{ m.tint }}"{% endif %}>
-  {% if m.clip %}
-    <video class="media" src="{{ m.clip | relative_url }}"{% if m.cover %} poster="{{ m.cover | relative_url }}"{% endif %}
-      muted loop playsinline
-      {% if include.context == "card" %}preload="none" data-hover-play{% else %}autoplay preload="metadata" data-autoplay{% endif %}
-      {% if include.context == "card" %}aria-hidden="true"{% else %}aria-label="Gameplay from {{ m.title }}"{% endif %}></video>
-  {% elsif m.cover %}
-    <img class="media" src="{{ m.cover | relative_url }}" alt="{% if include.context == "card" %}{% else %}{{ m.cover_alt | default: m.title | escape }}{% endif %}"
-      width="1280" height="720"{% if include.context == "card" %} loading="lazy"{% else %} fetchpriority="high"{% endif %} />
+  {% if m.preview and is_video %}
+    <video class="media" src="{{ m.preview | relative_url }}" muted loop playsinline preload="metadata" data-autoplay
+      {% if include.decorative %}aria-hidden="true"{% else %}aria-label="{{ m.preview_alt | default: m.title | escape }}"{% endif %}></video>
+  {% elsif m.preview %}
+    <img class="media" src="{{ m.preview | relative_url }}" alt="{% unless include.decorative %}{{ m.preview_alt | default: m.title | escape }}{% endunless %}"
+      width="1280" height="720" loading="lazy" />
   {% else %}
-    <div class="media media--empty"{% if include.context == "card" %} aria-hidden="true"{% else %} role="img" aria-label="No footage of {{ m.title }} yet"{% endif %}>
+    <div class="media media--empty"{% if include.decorative %} aria-hidden="true"{% else %} role="img" aria-label="No footage of {{ m.title }} yet"{% endif %}>
       <span class="media-empty-note">Footage coming</span>
       <span class="media-empty-title" aria-hidden="true" translate="no">{{ m.title }}</span>
     </div>

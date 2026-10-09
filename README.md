@@ -8,58 +8,53 @@ It's built with [Jekyll](https://jekyllrb.com/), which GitHub Pages runs automat
 
 | Path | What it is |
 | --- | --- |
-| `_games/` | One file per game. Each file becomes a page at `/games/<file-name>/`. |
-| `_experiments/` | Smaller projects and tech experiments, same format as games. |
-| `_templates/new-game.html` | Copy this to add a new game. |
-| `index.html` | Home page. The game grid fills itself from `_games/`. |
+| `_projects/` | One file per project. Its `category:` puts it on the School work or Personal projects page. |
+| `_templates/new-project.html` | Copy this to add a new project. |
+| `school-work.html`, `personal-projects.html` | The two project pages. They fill themselves from `_projects/`. |
+| `index.html` | Home page: intro plus links to the two project pages. |
 | `about.html` | About page. |
-| `_layouts/` | The page frames: `default.html` (header and footer) and `project.html` (game pages). |
-| `_includes/` | Reusable pieces: game cards, media, gallery, facts row. |
+| `_layouts/` | Page frames: `default.html` (header and footer) and `category.html` (project pages). |
+| `_includes/` | Reusable pieces: `project-row.html` (one project) and `media.html` (preview or placeholder). |
 | `assets/css/style.css` | All styling. Colours and fonts are at the top in `:root`. |
-| `assets/js/site.js` | Tabs, the systems sidebar, hover-to-play clips, gallery lightbox. |
+| `assets/js/site.js` | Plays preview clips while they're on screen, and opens "How it works" from a link. |
 | `_config.yml` | Site title, description and links (GitHub, itch.io, email, LinkedIn). |
 
-## Adding a new game
+## Adding a new project
 
-1. Copy `_templates/new-game.html` into `_games/` and rename it, e.g. `_games/my-new-game.html`.
-2. Fill in the fields at the top (title, tagline, tags, links...). Anything left out is hidden.
-3. Set `order:` to where it should appear in the list (1 = first).
-4. Write the tabs. Every `<section class="panel" data-tab="Name">` becomes a tab.
-5. Commit and push. The game appears on the home page.
+1. Copy `_templates/new-project.html` into `_projects/` and rename it, e.g. `_projects/my-new-game.html`.
+2. Set `category: school` or `category: personal`, and `order:` for its position on that page.
+3. Write a short `summary:` and fill in the other fields. Anything left out is hidden.
+4. Optional: write about how it works below the `---`. It appears in a fold-out "How it works" section under the row.
+5. Commit and push.
 
-To change which game is featured at the top of the home page, move `featured: true` to that game's file.
+You can link straight to a write-up, e.g. `https://mrbazingah.github.io/personal-projects/#pathfinding`. The section opens by itself.
 
-## Adding screenshots and footage
+## Adding the preview GIF
 
-Put media in `assets/games/<game-name>/`, then uncomment the matching lines at the top of the game's file:
+Put it in `assets/projects/<project-name>/`, then uncomment the `preview:` line at the top of the project's file:
 
 ```yaml
-cover: /assets/games/skit-gubbe/cover.jpg        # card image and share preview
-clip: /assets/games/skit-gubbe/clip.webm         # plays on hover, autoplays on the game page
-gallery:
-  - src: /assets/games/skit-gubbe/shot-01.jpg
-    caption: Opening hand
+preview: /assets/projects/skit-gubbe/preview.gif
+preview_alt: Playing a round against the AI
 ```
 
-Until a game has a cover, it shows its title on a dark coloured background (set with `tint:`).
+Until a project has a preview, it shows its title on a dark coloured background (set with `tint:`).
 
-| Asset | Size | Notes |
-| --- | --- | --- |
-| Cover | 1280×720 (16:9), JPG | A moment that shows what the game is. Not the menu. |
-| Screenshots | 1280×720 or 1920×1080, JPG | 4–8 per game, each showing something different. |
-| Clip | 10–30 s, 1280 wide, WebM or MP4, under ~4 MB | Muted and looping, so pick a moment that loops well. |
-| System visuals | GIF, PNG or short WebM | E.g. A* drawn with Gizmos, a win-rate graph from training. |
+- **Size:** 16:9, about 960×540. Keep it short, 5–10 seconds, and pick a moment that loops well.
+- **GIF or clip:** GIFs work, but they get big fast. A `.webm` or `.mp4` clip looks better at a fraction of the size, and visitors can pause it. Use the same `preview:` field for either.
+- **Recording:** [OBS](https://obsproject.com/) for video, [ScreenToGif](https://www.screentogif.com/) or ShareX for GIFs.
 
-Recording: [OBS](https://obsproject.com/) for video, [ScreenToGif](https://www.screentogif.com/) or ShareX for short clips.
-Shrinking a recording into a clip with [ffmpeg](https://ffmpeg.org/):
+Making a clip from a recording with [ffmpeg](https://ffmpeg.org/):
 
 ```sh
-ffmpeg -i recording.mp4 -ss 00:00:05 -t 20 -vf scale=1280:-2 -an -c:v libvpx-vp9 -crf 36 -b:v 0 clip.webm
+ffmpeg -i recording.mp4 -ss 00:00:05 -t 8 -vf scale=960:-2 -an -c:v libvpx-vp9 -crf 38 -b:v 0 preview.webm
 ```
 
-(`-ss` is where to start, `-t` is how many seconds to keep, `-an` removes the sound.)
+(`-ss` is where to start, `-t` is how many seconds to keep, `-an` removes the sound.) Or a GIF:
 
-To show a playable WebGL build right on the game page instead of the cover, set `embed:` to the build's iframe URL.
+```sh
+ffmpeg -i recording.mp4 -ss 00:00:05 -t 6 -vf "fps=15,scale=640:-1:flags=lanczos,split[a][b];[a]palettegen[p];[b][p]paletteuse" preview.gif
+```
 
 ## Previewing locally (optional)
 

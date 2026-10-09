@@ -1,64 +1,25 @@
 ---
 layout: default
 ---
-{% assign games = site.games | sort: "order" %}
-{% assign experiments = site.experiments | sort: "order" %}
-{% assign featured = games | where: "featured", true | first %}
-{% unless featured %}{% assign featured = games | first %}{% endunless %}
+{% assign sections = "school|School work|/school-work/,personal|Personal projects|/personal-projects/" | split: "," %}
 
 <section class="intro wrap">
   <h1 class="display intro-name">Fabian Hansson Vallgren</h1>
   <p class="intro-text">Game developer working in Unity and&nbsp;C#. I make games and dig into the systems behind them: a card-game AI that teaches itself, A*&nbsp;pathfinding, save systems.</p>
 </section>
 
-{% if featured %}
-<section class="featured wrap" aria-labelledby="featured-title">
-  <div class="featured-media">
-    <a href="{{ featured.url | relative_url }}" tabindex="-1" aria-hidden="true">
-      {% include media.html item=featured context="featured" %}
+<nav class="category-index wrap" aria-label="Projects">
+  {% for section in sections %}
+    {% assign parts = section | split: "|" %}
+    {% assign projects = site.projects | where: "category", parts[0] | sort: "order" %}
+    {% assign lead = projects | first %}
+    <a class="category-link" href="{{ parts[2] | relative_url }}">
+      {% if lead %}{% include media.html item=lead decorative=true %}{% endif %}
+      <span class="category-link-body">
+        <span class="label">{% if projects.size < 10 %}0{% endif %}{{ projects.size }} projects</span>
+        <span class="category-link-title">{{ parts[1] }}&nbsp;<span aria-hidden="true">→</span></span>
+        <span class="category-link-list" translate="no">{{ projects | map: "title" | join: " / " }}</span>
+      </span>
     </a>
-  </div>
-  <div class="featured-info">
-    <p class="label">Featured game</p>
-    <h2 class="display featured-title" id="featured-title" translate="no"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
-    {% if featured.tagline %}<p class="featured-tagline">{{ featured.tagline }}</p>{% endif %}
-    <div class="actions">
-      {% if featured.play_url %}<a class="btn btn--primary" href="{{ featured.play_url }}" target="_blank" rel="noopener">Play <span aria-hidden="true">↗</span></a>{% endif %}
-      <a class="btn" href="{{ featured.url | relative_url }}">How it works</a>
-    </div>
-  </div>
-</section>
-{% endif %}
-
-<section class="index-section wrap" id="games" aria-labelledby="games-title">
-  <header class="section-head">
-    <h2 class="label" id="games-title">Games</h2>
-    <span class="label section-count">{% if games.size < 10 %}0{% endif %}{{ games.size }}</span>
-  </header>
-  <div class="card-grid">
-    {% for game in games %}
-      {% include game-card.html game=game number=forloop.index %}
-    {% endfor %}
-  </div>
-</section>
-
-{% if experiments.size > 0 %}
-<section class="index-section wrap" id="experiments" aria-labelledby="experiments-title">
-  <header class="section-head">
-    <h2 class="label" id="experiments-title">Experiments</h2>
-    <span class="label section-count">{% if experiments.size < 10 %}0{% endif %}{{ experiments.size }}</span>
-  </header>
-  <ul class="row-list">
-    {% for item in experiments %}
-    <li>
-      <a class="row" href="{{ item.url | relative_url }}">
-        <span class="row-title">{{ item.title }}</span>
-        <span class="row-tagline">{{ item.tagline }}</span>
-        <span class="row-tags">{{ item.tags | join: " / " }}</span>
-        <span class="row-arrow" aria-hidden="true">→</span>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
-</section>
-{% endif %}
+  {% endfor %}
+</nav>

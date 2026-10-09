@@ -28,7 +28,8 @@
   <header class="site-header wrap">
     <a class="wordmark" translate="no" href="{{ '/' | relative_url }}">Fabian Hansson Vallgren</a>
     <nav class="site-nav" aria-label="Main">
-      <a href="{{ '/#games' | relative_url }}">Games</a>
+      <a href="{{ '/school-work/' | relative_url }}"{% if page.url == "/school-work/" %} aria-current="page"{% endif %}>School work</a>
+      <a href="{{ '/personal-projects/' | relative_url }}"{% if page.url == "/personal-projects/" %} aria-current="page"{% endif %}>Personal projects</a>
       <a href="{{ '/about/' | relative_url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
       <a href="{{ site.links.github }}" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
       <a href="{{ site.links.itch }}" target="_blank" rel="noopener">itch.io <span aria-hidden="true">↗</span></a>

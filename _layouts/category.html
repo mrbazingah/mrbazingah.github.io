@@ -1,0 +1,24 @@
+---
+layout: default
+---
+{% assign projects = site.projects | where: "category", page.category | sort: "order" %}
+<section class="category wrap">
+  <header class="category-head">
+    <h1 class="display category-title">{{ page.title }}</h1>
+    {% if page.intro %}<p class="lede">{{ page.intro }}</p>{% endif %}
+    <p class="label category-count">{% if projects.size < 10 %}0{% endif %}{{ projects.size }} projects</p>
+  </header>
+
+  <div class="project-list">
+    {% for project in projects %}
+      {% include project-row.html project=project number=forloop.index %}
+    {% endfor %}
+  </div>
+
+  {% if page.next_url %}
+  <a class="category-next" href="{{ page.next_url | relative_url }}">
+    <span class="label">Next</span>
+    <span class="category-next-title">{{ page.next_title }}&nbsp;<span aria-hidden="true">→</span></span>
+  </a>
+  {% endif %}
+</section>

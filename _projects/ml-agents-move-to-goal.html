@@ -1,0 +1,42 @@
+---
+title: ML-Agents MoveToGoal
+category: personal
+order: 3
+summary: "An experiment with Unity ML-Agents: teaching an agent to find its way to a goal, around walls, using reinforcement learning."
+tags: [ML-Agents, Reinforcement learning]
+engine: Unity / C#
+tint: "#1a2328"
+# source_url:
+
+# Short looping preview shown in the row. A GIF works; a WebM/MP4 clip is sharper and smaller.
+# preview: /assets/projects/ml-agents-move-to-goal/preview.gif
+# preview_alt: Gameplay from ML-Agents MoveToGoal
+---
+
+<div class="prose">
+  <p>After experimenting with Q-learning and MCTS for Skit Gubbe, I turned my focus to Unity’s ML-Agents package and started learning how to teach an AI agent to move through obstacles using reinforcement learning: giving it rewards when it completes the challenge and taking points away when it fails.</p>
+</div>
+
+<div class="systems">
+
+  <article class="system" id="fixed-positions">
+    <h3 class="system-title">A fixed course</h3>
+    <div class="prose">
+      <p>I began by making a platform, an agent, a goal and walls surrounding the platform. I gave the agent 2 observations: the goal’s position and its own. The first simulations went well, and it only took a minute for the agent to figure out where it had to go.</p>
+    </div>
+  </article>
+
+  <article class="system" id="random-positions">
+    <h3 class="system-title">Random start positions</h3>
+    <div class="prose">
+      <p>On that first course, the positions of the agent and the goal stayed the same every episode. I then started randomizing both positions, so the agent had to learn to navigate to the goal from anywhere.</p>
+    </div>
+  </article>
+
+  <article class="system" id="obstacles">
+    <h3 class="system-title">Wall obstacles</h3>
+    <div class="prose">
+      <p>After a few runs I added wall obstacles to the course, making sure neither the agent nor the goal intersected with these walls at the start of each episode.</p>
+    </div>
+  </article>
+</div>

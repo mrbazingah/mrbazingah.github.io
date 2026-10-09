@@ -1,0 +1,40 @@
+{% comment %}
+  One project on a category page: preview on one side, title, facts, short
+  description and links on the other. Anything written in the project file's body
+  goes in a "How it works" section that opens underneath.
+{% endcomment %}
+{% assign p = include.project %}
+{% assign docs = p.content | strip_html | strip %}
+<article class="project-row" id="{{ p.slug }}">
+  <div class="project-row-media">
+    {% include media.html item=p %}
+  </div>
+  <div class="project-row-info">
+    <p class="project-row-num label">{% if include.number < 10 %}0{% endif %}{{ include.number }}</p>
+    <h2 class="project-row-title" translate="no">{{ p.title }}</h2>
+    {% if p.engine or p.team or p.timeline or p.status %}
+    <ul class="project-row-facts">
+      {% if p.engine %}<li>{{ p.engine }}</li>{% endif %}
+      {% if p.team %}<li>{{ p.team }}</li>{% endif %}
+      {% if p.timeline %}<li>{{ p.timeline }}</li>{% endif %}
+      {% if p.status %}<li>{{ p.status }}</li>{% endif %}
+    </ul>
+    {% endif %}
+    <p class="project-row-summary">{{ p.summary }}</p>
+    {% if p.tags %}<p class="project-row-tags">{{ p.tags | join: " / " }}</p>{% endif %}
+    {% if p.play_url or p.source_url %}
+    <div class="actions">
+      {% if p.play_url %}<a class="btn btn--primary" href="{{ p.play_url }}" target="_blank" rel="noopener">Play <span aria-hidden="true">↗</span></a>{% endif %}
+      {% if p.source_url %}<a class="btn" href="{{ p.source_url }}" target="_blank" rel="noopener">Source <span aria-hidden="true">↗</span></a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+  {% if docs != "" %}
+  <details class="project-row-more">
+    <summary>How it works</summary>
+    <div class="project-row-docs">
+      {{ p.content }}
+    </div>
+  </details>
+  {% endif %}
+</article>

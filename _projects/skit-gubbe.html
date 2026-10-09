@@ -1,0 +1,55 @@
+---
+title: Skit Gubbe
+category: school
+order: 1
+summary: "A digital version of the Swedish card game, made as my final school project and still being polished. Its AI opponent learned the game with Q-learning, by playing millions of rounds against itself."
+tags: [Card game, Machine learning, Unity]
+engine: Unity / C#
+timeline: 3 months + ongoing
+status: In development
+play_url: https://mrbazinga.itch.io/skit-gubbe
+source_url: https://github.com/mrbazingah/CardGameRepo
+tint: "#1b2a20"
+
+# Short looping preview shown in the row. A GIF works; a WebM/MP4 clip is sharper and smaller.
+# preview: /assets/projects/skit-gubbe/preview.gif
+# preview_alt: Gameplay from Skit Gubbe
+---
+
+<div class="prose">
+  <p>Skit Gubbe started as my final school project. I worked on it for 3 months and have kept going since I graduated, polishing and refining the game, which I’m still doing.</p>
+  <p>I was really into cards and card games at the time and wanted to play Skit Gubbe digitally. When I searched, I couldn’t find a digital version of the game, so I was inspired to make it myself. It turned into a project I’m really proud of.</p>
+</div>
+
+<div class="systems">
+
+  <article class="system" id="q-learning-ai">
+    <h3 class="system-title">Q-learning AI opponent</h3>
+    <div class="prose">
+      <p>In Skit Gubbe I’ve experimented with using machine learning to develop an AI opponent. I first made a simple opponent that only played the lowest card possible, but later I started looking into Q-learning: a type of reinforcement learning where the AI learns by trial and error while playing against itself.</p>
+      <p>It plays the game over and over and gradually figures out which actions tend to lead to winning. It does that by saving states to a Q-table, which it then references while playing. If it hasn’t seen an exact position (state) before, it saves it to the Q-table, along with whether its actions were good or bad, which it decides through a reward system.</p>
+    </div>
+    <!--
+    <figure>
+      <img src="/assets/projects/skit-gubbe/q-table.png" alt="Part of the Q-table" width="1280" height="720" loading="lazy" />
+      <figcaption>What the Q-table looks like after training</figcaption>
+    </figure>
+    -->
+    <a class="source-link" href="https://github.com/mrbazingah/CardGameRepo/tree/main/Card%20Game/Assets/Scripts/Skit%20Gubbe/Machine%20Learning" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
+  </article>
+
+  <article class="system" id="training-simulation">
+    <h3 class="system-title">Training simulation</h3>
+    <div class="prose">
+      <p>To teach the Q-learning AI, I used an empty scene in Unity to run millions of simulations where it plays itself and learns the states that are then saved to the Q-table.</p>
+      <p>Training starts with the AI playing randomly, so it learns a lot of states early on. As the epsilon value drops, it plays randomly less and less and refers to the states in the Q-table instead, which makes its win rate go up throughout the simulation.</p>
+    </div>
+    <!--
+    <figure>
+      <img src="/assets/projects/skit-gubbe/win-rate.png" alt="Win rate rising as epsilon drops" width="1280" height="720" loading="lazy" />
+      <figcaption>Win rate over a training run</figcaption>
+    </figure>
+    -->
+    <a class="source-link" href="https://github.com/mrbazingah/CardGameRepo/tree/main/Card%20Game/Assets/Scripts/Skit%20Gubbe/Machine%20Learning" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>
+  </article>
+</div>
