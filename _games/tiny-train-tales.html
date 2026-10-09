@@ -32,8 +32,8 @@ tint: "#2a2318"
     <article class="system" id="pathfinding">
       <h3 class="system-title">A* pathfinding</h3>
       <div class="prose">
-        <p>This is the cornerstone of the entire game and the feature I've spent the most time on. The pathfinding uses the A* algorithm, where both the start city and the destination are known in advance. It works by exploring cities one at a time, always prioritizing the one with the lowest combined cost.</p>
-        <p>Each city tracks two values: the <em>gCost</em>, which is the actual distance traveled from the start to reach that city, and the <em>hCost</em>, which is an estimate of the distance remaining to the goal. These two are added together into an <em>fCost</em>, and the city with the lowest fCost is always explored next. This means paths that are expensive and still far from the goal don't get prioritized, while cheaper and more promising routes get explored first.</p>
+        <p>This is the cornerstone of the entire game and the feature I’ve spent the most time on. The pathfinding uses the A* algorithm, where both the start city and the destination are known in advance. It works by exploring cities one at a time, always prioritizing the one with the lowest combined cost.</p>
+        <p>Each city tracks 2 values: the <em>gCost</em>, which is the actual distance traveled from the start to reach that city, and the <em>hCost</em>, which is an estimate of the distance remaining to the goal. These 2 are added together into an <em>fCost</em>, and the city with the lowest fCost is always explored next. This means paths that are expensive and still far from the goal don’t get prioritized, while cheaper and more promising routes get explored first.</p>
         <p>Each city also keeps track of which city it came from, so once the destination is reached, the full path can be retraced backwards from end to start. The result is the shortest valid route between any two cities on the map.</p>
       </div>
       <!--
@@ -48,8 +48,8 @@ tint: "#2a2318"
     <article class="system" id="save-system">
       <h3 class="system-title">JSON save system</h3>
       <div class="prose">
-        <p>Before making this system I relied on Unity's PlayerPrefs to store data, but PlayerPrefs is designed for simple key-value pairs like settings, not structured game data with nested objects. After adding cargo and an inventory system, where each cargo object and city had many values to store, I felt a custom save system was needed to make saving both easier and more reliable.</p>
-        <p>The system works by saving data into SaveData classes, which are stored inside SaveFile classes as lists. It creates a separate JSON file for each category of data, like cities, inventory, upgrades and passengers, keeping things organized so only the relevant file needs to be rewritten when something changes. These files are stored locally on the player's computer.</p>
+        <p>Before making this system I relied on Unity’s PlayerPrefs to store data, but PlayerPrefs is designed for simple key-value pairs like settings, not structured game data with nested objects. After adding cargo and an inventory system, where each cargo object and city had many values to store, I felt a custom save system was needed to make saving both easier and more reliable.</p>
+        <p>The system works by saving data into SaveData classes, which are stored inside SaveFile classes as lists. It creates a separate JSON file for each category of data, like cities, inventory, upgrades and passengers, keeping things organized so only the relevant file needs to be rewritten when something changes. These files are stored locally on the player’s computer.</p>
         <p>Cities are also stored in a dictionary keyed by city name, so any system can look up a city instantly rather than scanning through the whole list. <code>SaveToDisk()</code> is called at key moments like scene transitions and when the game exits. When the player starts the game, it reads the saved files and loads all the data back in.</p>
       </div>
       <a class="source-link" href="https://github.com/mrbazingah/TinyTrainTalesRepo/tree/main/Tiny%20Train%20Tales/Assets/Scripts/Save%20System" target="_blank" rel="noopener">View source on GitHub <span aria-hidden="true">↗</span></a>

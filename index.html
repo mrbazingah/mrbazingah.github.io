@@ -13,12 +13,14 @@ layout: default
 
 {% if featured %}
 <section class="featured wrap" aria-labelledby="featured-title">
-  <a class="featured-media" href="{{ featured.url | relative_url }}" tabindex="-1" aria-hidden="true">
-    {% include media.html item=featured context="featured" %}
-  </a>
+  <div class="featured-media">
+    <a href="{{ featured.url | relative_url }}" tabindex="-1" aria-hidden="true">
+      {% include media.html item=featured context="featured" %}
+    </a>
+  </div>
   <div class="featured-info">
     <p class="label">Featured game</p>
-    <h2 class="display featured-title" id="featured-title"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+    <h2 class="display featured-title" id="featured-title" translate="no"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
     {% if featured.tagline %}<p class="featured-tagline">{{ featured.tagline }}</p>{% endif %}
     <div class="actions">
       {% if featured.play_url %}<a class="btn btn--primary" href="{{ featured.play_url }}" target="_blank" rel="noopener">Play <span aria-hidden="true">↗</span></a>{% endif %}

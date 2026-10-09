@@ -8,14 +8,14 @@
     <video class="media" src="{{ m.clip | relative_url }}"{% if m.cover %} poster="{{ m.cover | relative_url }}"{% endif %}
       muted loop playsinline
       {% if include.context == "card" %}preload="none" data-hover-play{% else %}autoplay preload="metadata" data-autoplay{% endif %}
-      aria-label="Gameplay from {{ m.title }}"></video>
+      {% if include.context == "card" %}aria-hidden="true"{% else %}aria-label="Gameplay from {{ m.title }}"{% endif %}></video>
   {% elsif m.cover %}
-    <img class="media" src="{{ m.cover | relative_url }}" alt="{{ m.cover_alt | default: m.title | escape }}"
-      width="1280" height="720"{% if include.context == "card" %} loading="lazy"{% endif %} />
+    <img class="media" src="{{ m.cover | relative_url }}" alt="{% if include.context == "card" %}{% else %}{{ m.cover_alt | default: m.title | escape }}{% endif %}"
+      width="1280" height="720"{% if include.context == "card" %} loading="lazy"{% else %} fetchpriority="high"{% endif %} />
   {% else %}
-    <div class="media media--empty" role="img" aria-label="No footage of {{ m.title }} yet">
+    <div class="media media--empty"{% if include.context == "card" %} aria-hidden="true"{% else %} role="img" aria-label="No footage of {{ m.title }} yet"{% endif %}>
       <span class="media-empty-note">Footage coming</span>
-      <span class="media-empty-title" aria-hidden="true">{{ m.title }}</span>
+      <span class="media-empty-title" aria-hidden="true" translate="no">{{ m.title }}</span>
     </div>
   {% endif %}
 </div>

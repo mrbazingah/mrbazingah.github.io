@@ -25,7 +25,6 @@ function setupTabs(root) {
     tab.setAttribute("aria-controls", panel.id);
     panel.setAttribute("role", "tabpanel");
     panel.setAttribute("aria-labelledby", tab.id);
-    panel.tabIndex = -1;
     list.append(tab);
     return tab;
   });
@@ -122,8 +121,8 @@ document.querySelectorAll(".systems").forEach((container) => {
 });
 
 // ---------- Video ----------
-// Card clips play while hovered or focused. Hero clips autoplay unless the
-// visitor prefers reduced motion, in which case they get normal controls.
+// Card clips play while hovered or focused. Featured and hero clips autoplay
+// (unless the visitor prefers reduced motion) and get a pause / play button.
 
 document.querySelectorAll("video[data-hover-play]").forEach((video) => {
   if (reduceMotion) return;
@@ -140,10 +139,26 @@ document.querySelectorAll("video[data-hover-play]").forEach((video) => {
 });
 
 document.querySelectorAll("video[data-autoplay]").forEach((video) => {
-  if (!reduceMotion) return;
-  video.pause();
-  video.removeAttribute("autoplay");
-  video.controls = true;
+  if (reduceMotion) {
+    video.removeAttribute("autoplay");
+    video.pause();
+  }
+  const host = video.closest(".featured-media, .hero-media") || video.parentElement;
+  const toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "media-toggle";
+  const update = () => {
+    toggle.textContent = video.paused ? "Play" : "Pause";
+    toggle.setAttribute("aria-label", `${video.paused ? "Play" : "Pause"} gameplay clip`);
+  };
+  toggle.addEventListener("click", () => {
+    if (video.paused) video.play().catch(() => {});
+    else video.pause();
+  });
+  video.addEventListener("play", update);
+  video.addEventListener("pause", update);
+  update();
+  host.append(toggle);
 });
 
 // ---------- Lightbox for gallery screenshots ----------

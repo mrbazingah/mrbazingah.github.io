@@ -7,7 +7,7 @@ layout: default
     <a class="back-link" href="{{ back_url | relative_url }}"><span aria-hidden="true">←</span> {{ back_label }}</a>
     <div class="project-title-row">
       <div>
-        <h1 class="display project-title">{{ page.title }}</h1>
+        <h1 class="display project-title" translate="no">{{ page.title }}</h1>
         {% if page.tagline %}<p class="lede">{{ page.tagline }}</p>{% endif %}
       </div>
       <div class="actions">
@@ -18,6 +18,7 @@ layout: default
   </div>
 
   <div class="project-hero wrap">
+    <div class="hero-media">
     {% if page.embed %}
       <div class="media-frame media-frame--embed"{% if page.embed_ratio %} style="--embed-ratio: {{ page.embed_ratio }}"{% endif %}>
         <iframe src="{{ page.embed }}" title="Play {{ page.title }}" allowfullscreen loading="lazy"></iframe>
@@ -25,6 +26,7 @@ layout: default
     {% else %}
       {% include media.html item=page context="hero" %}
     {% endif %}
+    </div>
   </div>
 
   {% include facts.html item=page %}
@@ -48,11 +50,11 @@ layout: default
     <nav class="pager wrap" aria-label="More projects">
       <a class="pager-link" href="{{ prev_item.url | relative_url }}">
         <span class="label">Previous</span>
-        <span class="pager-title">{{ prev_item.title }}</span>
+        <span class="pager-title" translate="no">{{ prev_item.title }}</span>
       </a>
       <a class="pager-link pager-link--next" href="{{ next_item.url | relative_url }}">
         <span class="label">Next</span>
-        <span class="pager-title">{{ next_item.title }}</span>
+        <span class="pager-title" translate="no">{{ next_item.title }}</span>
       </a>
     </nav>
   {% endif %}
